@@ -1,0 +1,5 @@
+venv/
+yang-models/
+std-yang/
+output/
+__pycache__/

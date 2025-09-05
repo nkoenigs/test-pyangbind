@@ -1,0 +1,41 @@
+module test-action {
+  yang-version 1.1;
+  namespace "http://example.com/test-action";
+  prefix ta;
+
+  import engineer { prefix engineer;}
+
+  grouping action-state {
+    description
+      "holds actions";
+
+    action delete {
+      description
+          "not implemented";
+    }
+
+    action reboot {
+      input {
+        leaf delay {
+          type uint8;
+          description "Delay in seconds before reboot.";
+        }
+      }
+      output {
+        leaf status {
+          type string;
+          description "Reboot status message.";
+        }
+      }
+    }
+  }
+
+  augment "/engineer:engineer" {
+    description
+      "actions include";
+
+      uses action-state;
+  }
+
+}
+
